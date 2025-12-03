@@ -1,38 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { portfolioData } from '../data/portfolioData';
 
 const Projects = () => {
-  const projects = [
-    {
-      title: 'CaptionBot',
-      description: 'Applied a merger model for image captioning to generate concise 1-line descriptions. Employed YOLO for precise object detection (95% accuracy) and added an audio feature to narrate descriptions and object locations.',
-      tech: ['Machine Learning', 'YOLO', 'Image Processing'],
-      github: 'https://github.com/badgujjarajay', // Fallback to profile as specific link unknown
-      demo: '#',
-    },
-    {
-      title: 'Image Resolution Enhancer',
-      description: 'Upscaled image quality 4x using CNNs for feature extraction and GANs for high-resolution generation. Transformed low-resolution images into high-quality outputs with precise detail preservation.',
-      tech: ['Deep Learning', 'CNN', 'GAN', 'Python'],
-      github: 'https://github.com/badgujjarajay',
-      demo: '#',
-    },
-    {
-      title: 'Entry Management System',
-      description: 'Engineered a comprehensive visitor management system with check-in/out functionality. Built an admin dashboard for efficient management and integrated EJS for a user-friendly front-end experience.',
-      tech: ['Node.js', 'ExpressJS', 'EJS', 'Admin Dashboard'],
-      github: 'https://github.com/badgujjarajay',
-      demo: '#',
-    },
-    {
-      title: 'Fruits Classification',
-      description: 'A Machine Learning project using Jupyter Notebooks to classify different types of fruits. Developed as part of the GeeksMan AI Squad Project.',
-      tech: ['Python', 'Jupyter Notebook', 'Machine Learning'],
-      github: 'https://github.com/badgujjarajay/fruits-classification',
-      demo: '#',
-    },
-  ];
+  const { projects } = portfolioData;
 
   return (
     <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-800">
@@ -75,6 +47,17 @@ const Projects = () => {
                       <FaGithub size={20} />
                       <span>Code</span>
                     </a>
+                    {project.demo && project.demo !== '#' && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                      >
+                        <FaExternalLinkAlt size={18} />
+                        <span>Live Demo</span>
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>
