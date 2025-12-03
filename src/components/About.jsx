@@ -6,50 +6,60 @@ import { techIcons } from '../utils/techIcons';
 const About = () => {
   const { about, skills } = portfolioData;
 
-  // Helper to render skill icons
-  const renderSkill = (skillName) => {
+  // Helper to render skill pills
+  const renderSkillPill = (skillName) => {
     const icon = techIcons[skillName];
     return (
-      <div key={skillName} className="flex flex-col items-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg hover:shadow-md transition-shadow">
-        <div className="text-3xl mb-2">{icon || <span className="text-gray-400">?</span>}</div>
-        <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">{skillName}</span>
-      </div>
+      <motion.div
+        key={skillName}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full shadow-sm hover:shadow-md transition-all cursor-default"
+      >
+        <div className="text-xl">{icon || <span className="text-gray-400 text-sm">?</span>}</div>
+        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{skillName}</span>
+      </motion.div>
     );
   };
 
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">{about.title}</h2>
+          {/* Section Title */}
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-8">
+            About Me
+          </h2>
 
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div className="space-y-6">
-              <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-                {about}
-              </p>
-            </div>
+          {/* Bio Text */}
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              {about}
+            </p>
+          </div>
 
-            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 text-center">Core Skills</h3>
+          {/* Skills Section */}
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-10">
+              Technical Skills
+            </h3>
 
-              <div className="space-y-8">
-                {Object.entries(skills).map(([category, skillList]) => (
-                  <div key={category}>
-                    <h4 className="text-md font-semibold text-blue-600 dark:text-blue-400 mb-4 uppercase tracking-wider border-b pb-2">
-                      {category}
-                    </h4>
-                    <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
-                      {skillList.map((skill) => renderSkill(skill))}
-                    </div>
+            <div className="space-y-10">
+              {Object.entries(skills).map(([category, skillList]) => (
+                <div key={category} className="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
+                  <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-6 text-center sm:text-left border-b border-gray-200 dark:border-gray-700 pb-2 inline-block sm:block">
+                    {category}
+                  </h4>
+                  <div className="flex flex-wrap justify-center sm:justify-start gap-4">
+                    {skillList.map((skill) => renderSkillPill(skill))}
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </motion.div>
