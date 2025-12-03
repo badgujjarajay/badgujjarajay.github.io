@@ -26,7 +26,7 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">About Me</h2>
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">{about.title}</h2>
 
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
