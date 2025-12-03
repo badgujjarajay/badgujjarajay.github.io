@@ -4,7 +4,7 @@ import { portfolioData } from '../data/portfolioData';
 import { socialIcons, socialColors, socialLabels } from '../utils/socialIcons';
 
 const Contact = () => {
-  const { social } = portfolioData;
+  const { social, contactDescription } = portfolioData;
 
   // Filter out keys that don't have icons or aren't meant for display if needed
   // For now, we assume all keys in social match keys in socialIcons
@@ -23,7 +23,7 @@ const Contact = () => {
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Get In Touch</h2>
           <h3 className="text-xl text-blue-600 dark:text-blue-400 mb-6">Let's Connect</h3>
           <p className="text-gray-600 dark:text-gray-400 mb-8">
-            I'm currently based in Hyderabad, India, and working at Goldman Sachs. I'm always open to discussing new technologies, system design challenges, or potential collaborations.
+            {contactDescription}
           </p>
 
           <div className="flex flex-wrap justify-center gap-6">

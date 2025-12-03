@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolioData';
 
 const Hero = () => {
-  const { name, role, description } = portfolioData;
+  const { name, role, heroDescription } = portfolioData;
 
   return (
     <section className="min-h-screen flex items-center justify-center pt-16 bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-gray-800">
@@ -23,7 +23,7 @@ const Hero = () => {
             {role}
           </h3>
           <p className="max-w-2xl text-lg text-gray-600 dark:text-gray-400 mb-10 leading-relaxed">
-            {description}
+            {heroDescription}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
