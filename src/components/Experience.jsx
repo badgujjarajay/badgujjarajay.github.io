@@ -1,33 +1,67 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { portfolioData } from '../data/portfolioData';
 
 const Experience = () => {
-  const experiences = [
-    {
-      company: 'Goldman Sachs',
-      role: 'Software Development Engineer',
-      period: 'Sep 2025 - Present | Hyderabad, TG',
-      description: 'Currently working as a Software Development Engineer, contributing to high-impact financial software solutions.',
-    },
-    {
-      company: 'Bank of New York',
-      role: 'Software Development Engineer',
-      period: 'Jul 2022 - Aug 2025 | Pune, MH',
-      description: 'Developed high-performance APIs for real-time stock market pricing (8ms latency) within a microservice architecture. Streamlined critical cron jobs saving 10+ hours/week. Developed the Intraday Updates system and contributed to real-time production configuration tools for high availability.',
-    },
-    {
-      company: 'Samsung Research',
-      role: 'Software Engineer Intern',
-      period: 'Jan 2022 - Jun 2022 | Noida, UP',
-      description: 'Executed machine learning tasks for Landmark Detection and Game Genre Recognition (87% accuracy). Engineered scripts for dataset annotation and integrated ML models into Samsung TV for real-time predictions.',
-    },
-     {
-      company: 'JC Bose University of Science and Technology, YMCA',
-      role: 'Bachelor of Technology in IT',
-      period: 'Aug 2018 - May 2022 | Faridabad, HR',
-      description: 'Graduated with a focus on Information Technology. Built a strong foundation in Data Structures, Algorithms, and System Design.',
-    },
-  ];
+  const { experience, education } = portfolioData;
+
+  const renderTimelineItem = (item, index, isExperience, totalItems) => {
+    const isLast = index === totalItems - 1;
+
+    return (
+      <div key={index} className="relative pl-8 sm:pl-10 group">
+        {/* Timeline Line */}
+        {!isLast && (
+          <div
+            className="absolute left-[9px] sm:left-[11px] top-2 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700 group-hover:bg-blue-200 dark:group-hover:bg-blue-900 transition-colors"
+            aria-hidden="true"
+          />
+        )}
+
+        {/* Dot */}
+        <div
+          className={`absolute left-0 sm:left-0.5 top-2 w-5 h-5 rounded-full border-4 border-white dark:border-gray-900 transition-colors ${
+            isExperience ? 'bg-blue-600' : 'bg-green-600'
+          }`}
+        />
+
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          className="mb-10 relative"
+        >
+           <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all">
+             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-2">
+               <div>
+                 <h4 className="text-lg font-bold text-gray-900 dark:text-white">
+                   {isExperience ? item.role : item.degree}
+                 </h4>
+                 <h5 className={`text-base font-semibold ${isExperience ? 'text-blue-600 dark:text-blue-400' : 'text-green-600 dark:text-green-400'}`}>
+                   {isExperience ? item.company : item.institution}
+                 </h5>
+               </div>
+               <div className="text-sm text-gray-500 dark:text-gray-400 font-medium whitespace-nowrap">
+                 {item.startDate} - {item.endDate}
+                 <div className="text-xs mt-1">{item.location}</div>
+               </div>
+             </div>
+
+             {item.description && item.description.length > 0 && (
+               <ul className="list-disc list-inside space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                 {item.description.map((desc, i) => (
+                   <li key={i} className="leading-relaxed pl-1 marker:text-gray-400">
+                     {desc}
+                   </li>
+                 ))}
+               </ul>
+             )}
+           </div>
+        </motion.div>
+      </div>
+    );
+  };
 
   return (
     <section id="experience" className="py-20 bg-white dark:bg-gray-900">
@@ -38,24 +72,32 @@ const Experience = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Experience & Education</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">
+            Experience & Education
+          </h2>
 
-          <div className="relative border-l border-gray-200 dark:border-gray-700 ml-4 md:ml-0 md:pl-0 md:grid md:grid-cols-1 md:gap-12 max-w-3xl mx-auto">
-            {experiences.map((exp, index) => (
-              <div key={index} className="mb-10 ml-6 md:ml-0 md:mb-0 md:flex md:items-start group">
-                <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900 group-hover:bg-blue-500 transition-colors duration-300">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full dark:bg-blue-300 group-hover:bg-white"></div>
-                </span>
-
-                <div className="md:flex-1 md:pl-10">
-                    <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
-                        {exp.role} <span className="hidden md:inline mx-2 text-gray-400">|</span> <span className="text-blue-600 dark:text-blue-400">{exp.company}</span>
-                    </h3>
-                    <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">{exp.period}</time>
-                    <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">{exp.description}</p>
-                </div>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+            {/* Experience Column */}
+            <div>
+              <div className="flex items-center gap-3 mb-8">
+                <span className="text-2xl">💼</span>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Experience</h3>
               </div>
-            ))}
+              <div className="relative">
+                {experience.map((item, index) => renderTimelineItem(item, index, true, experience.length))}
+              </div>
+            </div>
+
+            {/* Education Column */}
+            <div>
+              <div className="flex items-center gap-3 mb-8">
+                <span className="text-2xl">🎓</span>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Education</h3>
+              </div>
+               <div className="relative">
+                {education.map((item, index) => renderTimelineItem(item, index, false, education.length))}
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
