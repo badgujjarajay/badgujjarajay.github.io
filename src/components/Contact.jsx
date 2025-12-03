@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { portfolioData } from '../data/portfolioData';
 
 const Contact = () => {
+  const { contact } = portfolioData;
+
   return (
     <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -12,27 +15,27 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Get In Touch</h2>
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">{contact.title}</h2>
 
           <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             <div className="space-y-8">
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">Let's Connect</h3>
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">{contact.subtitle}</h3>
               <p className="text-gray-600 dark:text-gray-400 text-lg">
-                I'm currently based in Hyderabad, India, and working at Goldman Sachs. I'm always open to discussing new technologies, system design challenges, or potential collaborations.
+                {contact.description}
               </p>
 
               <div className="flex flex-col gap-4">
-                <a href="mailto:badgujjarajay@gmail.com" className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
+                <a href={`mailto:${contact.email}`} className="flex items-center gap-3 text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
                   <FaEnvelope size={24} />
-                  <span>badgujjarajay@gmail.com</span>
+                  <span>{contact.email}</span>
                 </a>
               </div>
 
               <div className="flex gap-6 mt-6">
-                <a href="https://github.com/badgujjarajay" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <a href={contact.social.github} target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   <FaGithub size={28} />
                 </a>
-                <a href="https://www.linkedin.com/in/badgujjarajay/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-blue-700 dark:hover:text-blue-400 transition-colors">
+                <a href={contact.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-blue-700 dark:hover:text-blue-400 transition-colors">
                   <FaLinkedin size={28} />
                 </a>
               </div>
