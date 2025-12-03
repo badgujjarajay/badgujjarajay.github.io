@@ -6,11 +6,15 @@ import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { portfolioData } from './data/portfolioData';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
+    // Set document title
+    document.title = portfolioData.name;
+
     // Check local storage or system preference
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       setDarkMode(true);
