@@ -1,0 +1,14 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Black outer circle -->
+  <circle cx="100" cy="100" r="95" fill="black" />
+
+  <!-- Thin white inner border -->
+  <circle cx="100" cy="100" r="88" fill="none" stroke="white" stroke-width="3" />
+
+  <!-- Centered bold text -->
+  <text x="50%" y="50%" fill="white" font-size="75"
+        font-family="Arial, sans-serif" font-weight="900"
+        text-anchor="middle" dominant-baseline="central">
+    AS
+  </text>
+</svg>
