@@ -75,7 +75,10 @@ export const portfolioData = {
       startDate: "Mar 2016",
       endDate: "Mar 2017",
       location: "Faridabad, HR",
-      description: []
+      description: [
+        "Achieved strong academic performance with a solid foundation in Mathematics and Science, building early problem-solving and analytical skills",
+        "Developed early interest in computers and technology, laying the foundation for pursuing engineering and later specializing in software development"
+      ]
     }
   ],
   projects: [
@@ -87,7 +90,7 @@ export const portfolioData = {
         "Developed an audio feature to narrate image descriptions, object recognition, and their spatial locations, enhancing accessibility and comprehension."
       ],
       technologies: ["Machine Learning", "YOLO", "Image Processing", "Neural Networks", "CNN", "RNN", "Python"],
-      link: "https://github.com/badgujjarajay",
+      link: "https://github.com/badgujjarajay/CaptionBot",
       demo: "#"
     },
     {
@@ -109,7 +112,7 @@ export const portfolioData = {
         "Integrated the EJS view engine to facilitate front-end tasks, ensuring a user-friendly experience."
       ],
       technologies: ["Node.js", "ExpressJS", "EJS", "Admin Dashboard"],
-      link: "https://github.com/badgujjarajay",
+      link: "https://github.com/badgujjarajay/Entry-Management-System",
       demo: "#"
     },
     {
@@ -120,7 +123,7 @@ export const portfolioData = {
         "Employed data augmentation techniques strategically to combat overfitting, achieving a significant 13% boost in classification accuracy."
       ],
       technologies: ["Python", "Jupyter Notebook", "Machine Learning", "CNN", "Transfer Learning"],
-      link: "https://github.com/badgujjarajay/fruits-classification",
+      link: "https://github.com/badgujjarajay/Fruit-Classifier",
       demo: "#"
     }
   ],

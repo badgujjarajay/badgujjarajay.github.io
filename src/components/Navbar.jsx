@@ -32,7 +32,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <span className="text-xl font-bold text-gray-900 dark:text-white">
-              {name}.
+              {name}<span className="text-purple-600">.</span>
             </span>
           </div>
 
