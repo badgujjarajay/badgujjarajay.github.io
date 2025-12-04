@@ -1,58 +1,73 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaJava, FaPython, FaNodeJs, FaDatabase, FaGitAlt, FaAngular, FaLinux } from 'react-icons/fa';
-import { SiCplusplus, SiC, SiSpringboot, SiTypescript, SiJavascript, SiHtml5, SiCss3, SiHibernate, SiOracle, SiGnubash } from 'react-icons/si';
+import { portfolioData } from '../data/portfolioData';
+import { techIcons } from '../utils/techIcons';
 
 const About = () => {
-  const skills = [
-    { name: 'Java', icon: <FaJava className="text-orange-600" /> },
-    { name: 'Spring Boot', icon: <SiSpringboot className="text-green-500" /> },
-    { name: 'Hibernate', icon: <SiHibernate className="text-gray-500" /> },
-    { name: 'Node.js', icon: <FaNodeJs className="text-green-500" /> },
-    { name: 'Angular', icon: <FaAngular className="text-red-600" /> },
-    { name: 'SQL / Oracle', icon: <SiOracle className="text-red-500" /> },
-    { name: 'Python', icon: <FaPython className="text-yellow-500" /> },
-    { name: 'C++', icon: <SiCplusplus className="text-blue-700" /> },
-    { name: 'System Design', icon: <FaDatabase className="text-blue-500" /> },
-    { name: 'Git', icon: <FaGitAlt className="text-orange-500" /> },
-  ];
+  const { about, skills } = portfolioData;
+
+  // Helper to render skill pills
+  const renderSkillPill = (skillName) => {
+    const icon = techIcons[skillName];
+    return (
+      <motion.div
+        key={skillName}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-md transition-all cursor-default"
+      >
+        <div className="text-lg">{icon || <span className="text-gray-400 text-xs">?</span>}</div>
+        <span className="text-xs font-medium text-gray-700 dark:text-gray-300">{skillName}</span>
+      </motion.div>
+    );
+  };
 
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">About Me</h2>
+          {/* Section Title */}
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-8">
+            About Me
+          </h2>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <p className="text-lg text-gray-600 dark:text-gray-300">
-                I am Ajay Singh, a Software Development Engineer with extensive experience in building high-performance, scalable applications. My expertise lies in backend development using Java, Spring Boot, and Node.js, as well as frontend technologies like Angular.
-              </p>
-              <p className="text-lg text-gray-600 dark:text-gray-300">
-                With a strong background in Data Structures, Algorithms, and System Design, I have successfully delivered critical solutions at major financial institutions like Goldman Sachs and Bank of New York. I specialize in optimizing APIs, streamlining workflows, and implementing microservices architectures.
-              </p>
-              <p className="text-lg text-gray-600 dark:text-gray-300">
-                Beyond core development, I have a passion for Machine Learning and Deep Learning, having worked on projects involving Convolutional Neural Networks (CNNs) and Generative Adversarial Networks (GANs).
-              </p>
-            </div>
+          {/* Bio Text */}
+          <div className="max-w-4xl mx-auto text-center mb-12 space-y-4">
+             {Array.isArray(about) ? (
+                about.map((paragraph, index) => (
+                    <p key={index} className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                        {paragraph}
+                    </p>
+                ))
+             ) : (
+                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {about}
+                </p>
+             )}
+          </div>
 
-            <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl shadow-lg">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 text-center">Core Skills</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-6">
-                {skills.map((skill) => (
-                  <div key={skill.name} className="flex flex-col items-center gap-2 group">
-                    <div className="text-4xl transition-transform group-hover:scale-110 duration-300">
-                      {skill.icon}
-                    </div>
-                    <span className="text-sm text-gray-600 dark:text-gray-400 text-center">{skill.name}</span>
+          {/* Skills Section */}
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">
+              Technical Skills
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {Object.entries(skills).map(([category, skillList]) => (
+                <div key={category} className="bg-white/50 dark:bg-gray-800/50 rounded-xl p-5 backdrop-blur-sm border border-gray-100 dark:border-gray-800">
+                  <h4 className="text-base font-bold text-blue-600 dark:text-blue-400 mb-4 text-center border-b border-gray-200 dark:border-gray-700 pb-2">
+                    {category}
+                  </h4>
+                  <div className="flex flex-wrap justify-center gap-3">
+                    {skillList.map((skill) => renderSkillPill(skill))}
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </motion.div>
