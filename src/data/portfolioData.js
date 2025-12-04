@@ -59,7 +59,6 @@ export const portfolioData = {
       endDate: "Jun 2022",
       location: "Faridabad, HR",
       description: [
-        "CGPA: 8.62",
         "Built a strong foundation in Data Structures, Algorithms, and System Design."
       ]
     },
@@ -69,9 +68,7 @@ export const portfolioData = {
       startDate: "Mar 2016",
       endDate: "Mar 2017",
       location: "Faridabad, HR",
-      description: [
-        "Score: 92% (CBSE)"
-      ]
+      description: []
     }
   ],
   projects: [
