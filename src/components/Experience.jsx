@@ -32,13 +32,13 @@ const Experience = () => {
           </div>
 
           {item.description && item.description.length > 0 && (
-            <ul className="list-disc list-inside space-y-2 text-sm text-gray-600 dark:text-gray-300">
+            <div className="text-sm text-gray-600 dark:text-gray-300">
               {item.description.map((desc, i) => (
-                <li key={i} className="leading-relaxed pl-1 marker:text-gray-400">
+                <p key={i} className="mb-2 last:mb-0 leading-relaxed">
                   {desc}
-                </li>
+                </p>
               ))}
-            </ul>
+            </div>
           )}
         </div>
       </motion.div>

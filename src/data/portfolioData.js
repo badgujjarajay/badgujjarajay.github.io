@@ -11,11 +11,11 @@ export const portfolioData = {
   ],
   contactDescription: "I'm currently based in Hyderabad, India, and working at Goldman Sachs. I'm always open to discussing new technologies, system design challenges, or potential collaborations.",
   skills: {
-    "Languages": ["Java", "Python", "C++", "C", "JavaScript", "TypeScript", "Shell Script"],
-    "Backend": ["Spring Boot", "Spring Framework", "Node.js", "ExpressJS", "Hibernate"],
-    "Frontend": ["Angular", "HTML", "CSS"],
-    "Databases": ["MySQL", "MongoDB", "Oracle", "Redis", "Kafka"],
-    "Core & Others": ["Data Structures and Algorithms", "System Design", "OOPs", "Design Patterns", "Machine Learning", "Deep Learning", "Neural Networks", "Git", "GitHub"]
+    "Core Skills": ["Data Structures and Algorithms", "Databases", "OOPs", "Design Patterns", "System Design"],
+    "Back-end Development": ["Spring Framework", "Spring Boot", "Hibernate", "NodeJS", "SQL", "Oracle DB", "Linux"],
+    "Big Data": ["Apache Hadoop", "Apache Spark", "HDFS", "MapReduce", "Apache Kafka"],
+    "Programming Languages": ["C", "C++", "Java", "Python", "JavaScript", "TypeScript", "Shell Script"],
+    "Others": ["HTML", "CSS", "Angular", "Machine Learning", "Deep Learning", "Neural Networks", "Git", "GitLab", "GitHub"]
   },
   experience: [
     {

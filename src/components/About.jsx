@@ -14,10 +14,10 @@ const About = () => {
         key={skillName}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full shadow-sm hover:shadow-md transition-all cursor-default"
+        className="flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-md transition-all cursor-default"
       >
-        <div className="text-xl">{icon || <span className="text-gray-400 text-sm">?</span>}</div>
-        <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{skillName}</span>
+        <div className="text-lg">{icon || <span className="text-gray-400 text-xs">?</span>}</div>
+        <span className="text-xs font-medium text-gray-700 dark:text-gray-300">{skillName}</span>
       </motion.div>
     );
   };
@@ -37,7 +37,7 @@ const About = () => {
           </h2>
 
           {/* Bio Text */}
-          <div className="max-w-4xl mx-auto text-center mb-16 space-y-4">
+          <div className="max-w-4xl mx-auto text-center mb-12 space-y-4">
              {Array.isArray(about) ? (
                 about.map((paragraph, index) => (
                     <p key={index} className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -53,17 +53,17 @@ const About = () => {
 
           {/* Skills Section */}
           <div className="mt-12">
-            <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-10">
+            <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">
               Technical Skills
             </h3>
 
-            <div className="space-y-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {Object.entries(skills).map(([category, skillList]) => (
-                <div key={category} className="bg-white/50 dark:bg-gray-800/50 rounded-2xl p-6 backdrop-blur-sm">
-                  <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-6 text-center sm:text-left border-b border-gray-200 dark:border-gray-700 pb-2 inline-block sm:block">
+                <div key={category} className="bg-white/50 dark:bg-gray-800/50 rounded-xl p-5 backdrop-blur-sm border border-gray-100 dark:border-gray-800">
+                  <h4 className="text-base font-bold text-blue-600 dark:text-blue-400 mb-4 text-center border-b border-gray-200 dark:border-gray-700 pb-2">
                     {category}
                   </h4>
-                  <div className="flex flex-wrap justify-center sm:justify-start gap-4">
+                  <div className="flex flex-wrap justify-center gap-3">
                     {skillList.map((skill) => renderSkillPill(skill))}
                   </div>
                 </div>
