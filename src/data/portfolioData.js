@@ -4,7 +4,11 @@ export const portfolioData = {
   email: "badgujjarajay@gmail.com",
   location: "Hyderabad, India",
   heroDescription: "I am a Software Development Engineer with extensive experience in building high-performance, scalable applications. I specialize in backend development, system design, and AI/ML solutions.",
-  about: "I am Ajay Singh, a Software Development Engineer with extensive experience in building high-performance, scalable applications. My expertise lies in backend development using Java, Spring Boot, and Node.js, as well as frontend technologies like Angular. With a strong background in Data Structures, Algorithms, and System Design, I have successfully delivered critical solutions at major financial institutions like Goldman Sachs and Bank of New York. I specialize in optimizing APIs, streamlining workflows, and implementing microservices architectures. Beyond core development, I have a passion for Machine Learning and Deep Learning, having worked on projects involving Convolutional Neural Networks (CNNs) and Generative Adversarial Networks (GANs).",
+  about: [
+    "I am Ajay Singh, a Software Development Engineer with extensive experience in building high-performance, scalable applications. My expertise lies in backend development using Java, Spring Boot, and Node.js, as well as frontend technologies like Angular.",
+    "With a strong background in Data Structures, Algorithms, and System Design, I have successfully delivered critical solutions at major financial institutions like Goldman Sachs and Bank of New York. I specialize in optimizing APIs, streamlining workflows, and implementing microservices architectures.",
+    "Beyond core development, I have a passion for Machine Learning and Deep Learning, having worked on projects involving Convolutional Neural Networks (CNNs) and Generative Adversarial Networks (GANs)."
+  ],
   contactDescription: "I'm currently based in Hyderabad, India, and working at Goldman Sachs. I'm always open to discussing new technologies, system design challenges, or potential collaborations.",
   skills: {
     "Languages": ["Java", "Python", "C++", "C", "JavaScript", "TypeScript", "Shell Script"],
@@ -121,8 +125,6 @@ export const portfolioData = {
     email: "badgujjarajay@gmail.com",
     linkedin: "https://www.linkedin.com/in/badgujjarajay/",
     github: "https://github.com/badgujjarajay",
-    codechef: "https://www.codechef.com/users/badgujjarajay",
-    codeforces: "https://codeforces.com/profile/badgujjarajay",
     leetcode: "https://leetcode.com/badgujjarajay/"
   }
 };

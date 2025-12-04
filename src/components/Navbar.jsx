@@ -37,7 +37,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
           </div>
 
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-10 flex items-center space-x-4">
               {links.map((link) => (
                 <a
                   key={link.name}

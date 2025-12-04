@@ -37,10 +37,18 @@ const About = () => {
           </h2>
 
           {/* Bio Text */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              {about}
-            </p>
+          <div className="max-w-4xl mx-auto text-center mb-16 space-y-4">
+             {Array.isArray(about) ? (
+                about.map((paragraph, index) => (
+                    <p key={index} className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                        {paragraph}
+                    </p>
+                ))
+             ) : (
+                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {about}
+                </p>
+             )}
           </div>
 
           {/* Skills Section */}
