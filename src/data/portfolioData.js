@@ -9,13 +9,14 @@ export const portfolioData = {
     "With a strong background in Data Structures, Algorithms, and System Design, I have successfully delivered critical solutions at major financial institutions like Goldman Sachs and Bank of New York. I specialize in optimizing APIs, streamlining workflows, and implementing microservices architectures.",
     "Beyond core development, I have a passion for Machine Learning and Deep Learning, having worked on projects involving Convolutional Neural Networks (CNNs) and Generative Adversarial Networks (GANs)."
   ],
-  contactDescription: "I'm currently based in Hyderabad, India, and working at Goldman Sachs. I'm always open to discussing new technologies, system design challenges, or potential collaborations.",
+  contactDescription: "I am always open to discussing new technologies, system design challenges, or potential collaborations. Feel free to reach out to me via email or connect with me on LinkedIn to start a conversation.",
   skills: {
-    "Core Skills": ["Data Structures and Algorithms", "Databases", "OOPs", "Design Patterns", "System Design"],
-    "Back-end Development": ["Spring Framework", "Spring Boot", "Hibernate", "NodeJS", "SQL", "Oracle DB", "Linux"],
+    "Core Skills": ["Data Structures and Algorithms", "Databases", "OOPs", "Design Patterns", "System Design", "Linux"],
+    "Web Development": ["Spring Framework", "Spring Boot", "Hibernate", "NodeJS", "HTML", "CSS", "Angular"],
     "Big Data": ["Apache Hadoop", "Apache Spark", "HDFS", "MapReduce", "Apache Kafka"],
+    "Databases": ["SQL", "Oracle DB", "MySQL", "SQL Server", "Redis", "MongoDB"],
     "Programming Languages": ["C", "C++", "Java", "Python", "JavaScript", "TypeScript", "Shell Script"],
-    "Others": ["HTML", "CSS", "Angular", "Machine Learning", "Deep Learning", "Neural Networks", "Git", "GitLab", "GitHub"]
+    "Others": ["Machine Learning", "Deep Learning", "Neural Networks", "Git", "GitLab", "GitHub"]
   },
   experience: [
     {
@@ -63,7 +64,9 @@ export const portfolioData = {
       endDate: "Jun 2022",
       location: "Faridabad, HR",
       description: [
-        "Built a strong foundation in Data Structures, Algorithms, and System Design."
+        "Graduated with strong foundations in Data Structures, Algorithms, Operating Systems, Computer Networks, and Database Systems, applying them in practical and industry-oriented projects",
+        "Led multiple ML and full-stack development projects, including image captioning, GAN-based super-resolution, and a full-stack entry management system, demonstrating end-to-end problem solving",
+        "Actively participated in coding contests and hackathons, strengthening competitive programming and algorithmic thinking, resulting in consistently high performance on platforms like LeetCode"
       ]
     },
     {
